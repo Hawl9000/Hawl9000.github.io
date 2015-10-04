@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" typeof="bibo:Document w3p:REC" prefix="bibo: http://purl.org/ontology/bibo/ w3p: http://www.w3.org/2001/02pd/rec54#">
+<head><script>(function(){var e="wtsrt_",g="tbsd_",h="tbnd_",k="start",l="_wtsrt",m="_tbnd",n="CSI/";(function(){function f(a){this.t={};this.tick=function(a,c,b){this.t[a]=[void 0!=b?b:(new Date).getTime(),c];if(void 0==b)try{window.console.timeStamp(n+a)}catch(d){}};this.tick(k,null,a)}var a;window.performance&&(a=window.performance.timing);var p=a?new f(a.responseStart):new f;window.mobilespeed_jstiming={Timer:f,load:p};if(a){var c=a.navigationStart,d=a.responseStart;0<c&&d>=c&&(window.mobilespeed_jstiming.srt=d-c)}if(a){var b=window.mobilespeed_jstiming.load;0<c&&d>=c&&(b.tick(l,void 0,c),b.tick(e,
+l,d),b.tick(g,e))}try{a=null,window.chrome&&window.chrome.csi&&(a=Math.floor(window.chrome.csi().pageT),b&&0<c&&(b.tick(m,void 0,window.chrome.csi().startE),b.tick(h,m,c))),null==a&&window.gtbExternal&&(a=window.gtbExternal.pageT()),null==a&&window.external&&(a=window.external.pageT,b&&0<c&&(b.tick(m,void 0,window.external.startE),b.tick(h,m,c))),a&&(window.mobilespeed_jstiming.pt=a)}catch(q){}})();})();
+</script><meta property="dc:language" content="en" lang="">
+    <title>RDFa Lite 1.1 - Seconde Edition</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <!--
+      === NOTA BENE ===
+      For the three scripts below, if your spec resides on dev.w3 you can check them
+      out in the same tree and use relative links so that they'll work offline,
+     -->
+
+     <link rel="icon"
+           type="image/png"
+           href="https://www.w3.org/Icons/w3c_home">
+
+  <style>/*****************************************************************
+ * ReSpec 3 CSS
+ * Robin Berjon - http://berjon.com/
+ *****************************************************************/
+
+/* --- INLINES --- */
+em.rfc2119 {
+    text-transform:     lowercase;
+    font-variant:       small-caps;
+    font-style:         normal;
+    color:              #900;
+}
+
+h1 acronym, h2 acronym, h3 acronym, h4 acronym, h5 acronym, h6 acronym, a acronym,
+h1 abbr, h2 abbr, h3 abbr, h4 abbr, h5 abbr, h6 abbr, a abbr {
+    border: none;
+}
+
+dfn {
+    font-weight:    bold;
+}
+
+a.internalDFN {
+    color:  inherit;
+    border-bottom:  1px solid #99c;
+    text-decoration:    none;
+}
+
+a.externalDFN {
+    color:  inherit;
+    border-bottom:  1px dotted #ccc;
+    text-decoration:    none;
+}
+
+a.bibref {
+    text-decoration:    none;
+}
+
+cite .bibref {
+    font-style: normal;
+}
+
+code {
+    color:  #C83500;
+}
+
+/* --- TOC --- */
+.toc a, .tof a {
+    text-decoration:    none;
+}
+
+a .secno, a .figno {
+    color:  #000;
+}
+
+ul.tof, ol.tof {
+    list-style: none outside none;
+}
+
+.caption {
+    margin-top: 0.5em;
+    font-style:   italic;
+}
+
+/* --- TABLE --- */
+table.simple {
+    border-spacing: 0;
+    border-collapse:    collapse;
+    border-bottom:  3px solid #005a9c;
+}
+
+.simple th {
+    background: #005a9c;
+    color:  #fff;
+    padding:    3px 5px;
+    text-align: left;
+}
+
+.simple th[scope="row"] {
+    background: inherit;
+    color:  inherit;
+    border-top: 1px solid #ddd;
+}
+
+.simple td {
+    padding:    3px 10px;
+    border-top: 1px solid #ddd;
+}
+
+.simple tr:nth-child(even) {
+    background: #f0f6ff;
+}
+
+/* --- DL --- */
+.section dd > p:first-child {
+    margin-top: 0;
+}
+
+.section dd > p:last-child {
+    margin-bottom: 0;
+}
+
+.section dd {
+    margin-bottom:  1em;
+}
+
+.section dl.attrs dd, .section dl.eldef dd {
+    margin-bottom:  0;
+}
+
+@media print {
+    .removeOnSave {
+        display: none;
+    }
+}
+</style><style>/* --- EXAMPLES --- */
+div.example-title {
+    min-width: 7.5em;
+    color: #b9ab2d;
+}
+div.example-title span {
+    text-transform: uppercase;
+}
+aside.example, div.example, div.illegal-example {
+    padding: 0.5em;
+    margin: 1em 0;
+    position: relative;
+    clear: both;
+}
+div.illegal-example { color: red }
+div.illegal-example p { color: black }
+aside.example, div.example {
+    padding: .5em;
+    border-left-width: .5em;
+    border-left-style: solid;
+    border-color: #e0cb52;
+    background: #fcfaee;
+}
+
+aside.example div.example {
+    border-left-width: .1em;
+    border-color: #999;
+    background: #fff;
+}
+aside.example div.example div.example-title {
+    color: #999;
+}
+</style><link href="https://www.w3.org/StyleSheets/TR/W3C-REC" rel="stylesheet"><!--[if lt IE 9]><script src='https://www.w3.org/2008/site/js/html5shiv.js'></script><![endif]--></head>
+  <body id="respecDocument" role="document" class="h-entry"><div id="respecHeader" role="contentinfo" class="head">
+  <p>
+
+
+            <a href="http://www.w3.org/"><img src="https://www.w3.org/Icons/w3c_home" alt="W3C" height="48" width="72"></a>
+
+
+  </p>
+  <h1 class="title p-name" id="title" property="dcterms:title">RDFa Lite 1.1 - Seconde Edition</h1>
+
+  <h2 id="w3c-recommendation-17-march-2015">Recommandation <abbr title="World Wide Web Consortium">W3C</abbr> <time property="dcterms:issued" class="dt-published" datetime="2015-03-17">17 Mars 2015</time></h2>
+  <dl>
+
+      <dt>Version actuelle :</dt>
+      <dd><a class="u-url" href="http://www.w3.org/TR/2015/REC-rdfa-lite-20150317/">http://www.w3.org/TR/2015/REC-rdfa-lite-20150317/</a></dd>
+      <dt>Dernière version publiée :</dt>
+      <dd><a href="http://www.w3.org/TR/rdfa-lite/">http://www.w3.org/TR/rdfa-lite/</a></dd>
+
+
+
+
+      <dt>Rapport de mise en œuvre :</dt>
+      <dd><a href="http://www.w3.org/2010/02/rdfa/wiki/CR-ImplementationReport">http://www.w3.org/2010/02/rdfa/wiki/CR-ImplementationReport</a></dd>
+
+
+
+
+      <dt>Version précédente :</dt>
+      <dd><a rel="dcterms:replaces" href="http://www.w3.org/TR/2014/PER-rdfa-lite-20141216/">http://www.w3.org/TR/2014/PER-rdfa-lite-20141216/</a></dd>
+
+
+
+          <dt>Recommandation précédente :</dt>
+          <dd><a rel="dcterms:replaces" href="http://www.w3.org/TR/2012/REC-rdfa-lite-20120607/">http://www.w3.org/TR/2012/REC-rdfa-lite-20120607/</a></dd>
+
+
+    <dt>Editeurs :</dt>
+    <dd class="p-author h-card vcard" property="bibo:editor" resource="_:editor0"><span property="rdf:first" typeof="foaf:Person"><meta property="foaf:name" content="Manu Sporny"><a class="u-url url p-name fn" property="foaf:homepage" href="http://digitalbazaar.com/">Manu Sporny</a>, <a property="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://digitalbazaar.com/">Digital Bazaar, Inc.</a></span>
+<span property="rdf:rest" resource="rdf:nil"></span>
+</dd>
+<dt>Traducteur :</dt>
+
+    <dd rel="bibo:translator" inlist=""><span typeof="foaf:Person"><a rel="foaf:homepage"
+                     property="foaf:name" content="Thibault Paris" href="carpe://poisson.fish/">Thibault Paris</a></span></dd>
+  </dl>
+
+    <p>
+      Veuillez vérifier l'<a href="http://www.w3.org/2015/rdfa1.1-errata"><strong>errata</strong></a> pour toutes les erreurs
+      reportées depuis la publication.
+    </p>
+
+
+
+
+
+      <p class="copyright">
+        <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©
+        2015
+
+        <a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
+        (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+        <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+        <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>).
+
+        <abbr title="World Wide Web Consortium">W3C</abbr> <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+        <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
+
+          <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>
+
+        rules apply.
+      </p>
+
+
+  <hr>
+</div>
+    <section property="dc:abstract" class="introductory" id="abstract"><h2 resource="#h-abstract" id="h-abstract"><span property="xhv:role" resource="xhv:heading">Résumé</span></h2>
+      <p>
+RDFa Lite est un sous-ensemble de RDFa, the Resource Description Framework in
+attributes(RDFa), qui est constitué d'attributs de balisage utilisés dans les documents web comme le HTML, SVG, et
+XML. Bien qu'il ne soit pas une solution complète, il est rapide à apprendre et à utiliser.
+      </p>
+    </section><section id="sotd" class="introductory"><h2 resource="#h-sotd" id="h-sotd"><span property="xhv:role" resource="xhv:heading">Statut de ce Document</span></h2>
+
+
+
+        <p>
+          <em>Cette section décris le statut du document à l'heure de sa publication.
+          D'autres documents peuvent prendre la place de celui-ci. Une liste des publications et des rapports actuelles du <abbr title="World Wide Web Consortium">W3C</abbr> peuvent être trouvés ici :<a href="http://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> Index des rapports techniques</a> à cette URL :
+          http://www.w3.org/TR/.</em>
+        </p>
+
+
+<!--      <p>This document has been reviewed by W3C Members, by software
+developers, and by other W3C groups and interested parties, and is endorsed by the Director as a W3C Recommendation. It is a stable document and may be used as reference material or cited from another document. W3C's role in making the Recommendation is to draw attention
+to the specification and to promote its widespread deployment. This enhances the functionality and interoperability of the Web.</p>
+
+<p>This Proposed Edited Recommendation reflects changes made as a result of comments received since the Recommendation was first published. These changes are entirely editorial. W3C Advisory Committee Members are invited to send formal review comments on this Proposed Edited Recommendation to the W3C Team until 01 February 2015. Members of the W3C Advisory Committee will find the appropriate review form for this document by consulting their <a href="http://www.w3.org/2002/09/wbs/myQuestionnaires">list of current WBS questionnaires</a>.</p> -->
+    <p>Ceci est un révision éditoriale <a href="http://www.w3.org/TR/2012/REC-rdfa-lite-20120607/">de la recommandation publiée le 7 Juin , 2012</a>. Voir <a href="#changes">la section liée </a> pour les modifications.</p>
+
+    <p><abbr title="World Wide Web Consortium">W3C</abbr> devra regarder l'<a href="http://www.w3.org/2015/rdfa1.1-errata"> errata</a> et résoudre les problèmes dans une nouvelle recommandation du RDFa 1.1 Lite.
+    </p>
+
+      <p>
+Ce document est le résultat de nombreuses discussions entre
+World Wide Web Consortium, incluant le groupe de travail RDFa,
+la communauté des vocabulaires, le groupe de travail HTML, et les sponsors de l'initiative <a href="http://schema.org">schema.org</a> , incluant
+Google, Yahoo!, Microsoft, and Yandex. Ce document à reçus l'approbation de ces organisations.
+Il n'y a eu aucun changements durant la phase d'approbation.
+Le
+<a href="http://www.w3.org/2010/02/rdfa/wiki/CR-ImplementationReport">rapport de mise en œuvre</a>
+est disponible.</p>
+
+
+
+        <p>
+        Ce document a était publié par le <a href="http://www.w3.org/2010/02/rdfa/">groupe de travail RDFa</a> comme une recommandation.
+
+
+            Si vous voulez faire un commentaire sur ce document ,merci d'envoyer une message à cette adresse :
+            <a href="mailto:public-rdfa@w3.org">public-rdfa@w3.org</a>
+            (<a href="mailto:public-rdfa-request@w3.org?subject=subscribe">abonnement</a>,
+            <a href="http://lists.w3.org/Archives/Public/public-rdfa/">archives</a>).
+
+
+
+
+
+
+            Tout les commentaires sont les bienvenus !
+
+
+        </p>
+
+          <p>
+            Veuillez regarder le <a href="http://www.w3.org/2010/02/rdfa/wiki/CR-ImplementationReport">Rapport de mise en œuvre</a>.
+          </p>
+
+
+
+
+          <p>
+            Ce document a était vérifié par les membres du <abbr title="World Wide Web Consortium">W3C</abbr> , par des développeurs, et d'autres groupes du <abbr title="World Wide Web Consortium">W3C</abbr>
+            , et ils ont approbés ce document comme une  <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation.
+          Ceci est un document fiable et qui peut être cité par d'autre documents. Le <abbr title="World Wide Web Consortium">W3C</abbr> dans son rôle de promoteur de cette recommandation tient à souligner la nécessité de standards communs.
+          </p>
+
+
+        <p>
+
+            Ce document à était produit par un groupe fonctionnant sous le réglement du <abbr title="World Wide Web Consortium">W3C</abbr> datant du
+            <a id="sotd_patent" property="w3p:patentRules" href="http://www.w3.org/Consortium/Patent-Policy-20040205/">5 Février 2004</a>.
+
+
+
+
+              <abbr title="World Wide Web Consortium">W3C</abbr> maintains a <a href="http://www.w3.org/2004/01/pp-impl/44350/status" rel="disclosure">public list of any patent
+              disclosures</a>
+
+            made in connection with the deliverables of the group; that page also includes
+            instructions for disclosing a patent. An individual who has actual knowledge of a patent
+            which the individual believes contains
+            <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#def-essential">Essential
+            Claim(s)</a> must disclose the information in accordance with
+            <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#sec-Disclosure">section
+            6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
+
+
+        </p>
+
+          <p>
+          Ce document est régi par le processus des documents datant du <a id="w3c_process_revision" href="http://www.w3.org/2005/10/Process-20051014/">14 Octobre 2005 </a>.
+          </p>
+
+
+
+
+
+</section><section id="toc"><h2 resource="#h-toc" id="h-toc" class="introductory"><span property="xhv:role" resource="xhv:heading">Sommaire</span></h2><ul id="respecContents" role="directory" class="toc"><li class="tocline"><a class="tocxref" href="#introduction"><span class="secno">1. </span>Introduction</a></li><li class="tocline"><a class="tocxref" href="#the-attributes"><span class="secno">2. </span>Les Attributs</a><ul class="toc"><li class="tocline"><a class="tocxref" href="#vocab-typeof-and-property"><span class="secno">2.1 </span>vocab, typeof, and property</a></li><li class="tocline"><a class="tocxref" href="#resource"><span class="secno">2.2 </span>ressources</a></li><li class="tocline"><a class="tocxref" href="#prefix"><span class="secno">2.3 </span>prefix</a></li></ul></li><li class="tocline"><a class="tocxref" href="#conformance"><span class="secno">3. </span>Conformité</a><ul class="toc"><li class="tocline"><a class="tocxref" href="#document-conformance"><span class="secno">3.1 </span>Conformité du Document</a></li></ul></li><li class="tocline"><a class="tocxref" href="#change-history-since-the-last-published-recommentation"><span class="secno">4. </span>Modifications depuis la dernière recommandation</a></li><li class="tocline"><a class="tocxref" href="#references"><span class="secno">A. </span>Réferences</a><ul class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><span class="secno">A.1 </span>Normative références</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><span class="secno">A.2 </span>Réferences informative</a></li></ul></li></ul></section>
+
+
+
+    <section property="bibo:hasPart" resource="#introduction" typeof="bibo:Chapter" id="introduction" class="informative">
+      <!--OddPage--><h2 resource="#h-introduction" id="h-introduction"><span property="xhv:role" resource="xhv:heading"><span class="secno">1. </span>Introduction</span></h2><p><em>Cette section n'est pas normatif.
+
+</em></p>
+      <p>
+L'entière syntaxe RDFa [<cite><a href="#bib-rdfa-core" class="bibref">rdfa-core</a></cite>] donne un certains nombre
+de fonctionalitées qui permettent à l'auteur d'exprimer de données dans un ensemble structuré,
+tel que les relations entre les personnes, emplacements, et des évènements en HTML ou
+XML. Nombreuses de ces fonctionalitées peuvent être complexe à utiliser pour les auteurs qui ne sont pas des experts dans les données structurées.
+La version simplifiéé du RDFa (RDFa lite) est une introduction en douceur
+dans les données structurées pour les auteurs qui veulent apprendre le RDFa. Le but du RDFa lite est de permettre l'usage des structures simple qui sont suffisantes dans 80% des cas.
+      </p>
+    </section>
+
+    <section property="bibo:hasPart" resource="#the-attributes" typeof="bibo:Chapter" id="the-attributes" class="informative">
+      <!--OddPage--><h2 resource="#h-the-attributes" id="h-the-attributes"><span property="xhv:role" resource="xhv:heading"><span class="secno">2. </span>Les Attributs</span></h2><p><em>Cette section n'est pas normatif.
+
+</em></p>
+      <p>
+RDFa Lite a cinq simple attributs; <code>vocab</code>,
+<code>typeof</code>, <code>property</code>, <code>resource</code>, and
+<code>prefix</code>. RDFa 1.1 Lite est complétement compatible avec le RDFa 1.1 . Cela signifie que si un auteur trouve le RDFa Lite 1.1 pas assez puissant alors,
+il a juste à passer au RDFa 1.1 touts les attributs seront les même ,le RDFa 1.1 en rajoutera simplement d'autre.
+      </p>
+
+      <section property="bibo:hasPart" resource="#vocab-typeof-and-property" typeof="bibo:Chapter" id="vocab-typeof-and-property">
+        <h3 resource="#h-vocab-typeof-and-property" id="h-vocab-typeof-and-property"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.1 </span>vocab, typeof, and property</span></h3>
+        <p>
+RDFa, comme les Microformats [<cite><a href="#bib-microformats" class="bibref">microformats</a></cite>] et Microdata [<cite><a href="#bib-microdata" class="bibref">microdata</a></cite>],
+nous permettent de parler de <em>choses</em>
+sur le Web de telle sorte qu'une machine puisse comprendre ce que nous disons.
+Habituellement lorsque nous parlons d'une chose, nous utilisons un
+<strong>vocabulaire</strong> spécifique pour parler. Donc si on veut parler d'une personne, le vocabulaire aura des termes spécifiques comme le
+<em>nom</em> et <em>le numéro de téléphone</em>. Quand on veut le signaler sur le Web, nous avons besoin de quelque chose de similaire, qui est spécifique à ce vocabulaire. Voici un simple exemple:
+        </p>
+        <div class="example"><div class="example-title"><span>Exemple 1</span></div><pre class="example">&lt;p <span style="color: #5b5; font-weight: bold;">vocab="http://schema.org/"</span>&gt;
+          My name is Manu Sporny and you can give me a ring via 1-800-555-0199.
+&lt;/p&gt;</pre></div>
+        <p>
+Dans cet exemple nous avons spécifié ce que nous allons utiliser comme
+<strong>vocabulaire</strong> que nous pouvons trouver à
+<code>http://schema.org/</code>. Ce vocabulaire est reconnus par les moteurs de recherche populaire pour parler de choses comme des personnes, Endroits, Commentares,
+ et des évènements. Une fois que nous avons spécifié le vocabulaire, nous avons besoin de spécifier le <strong>type of</strong>  de la chose dont nous voulons parler. Dans ce cas nous parlons d'une personne donc le typeof="Person":
+        </p>
+        <div class="example"><div class="example-title"><span>Exemple 2</span></div><pre class="example">&lt;p vocab="http://schema.org/" <span style="color: #5b5; font-weight: bold;">typeof="Person"</span>&gt;
+   My name is Manu Sporny and you can give me a ring via 1-800-555-0199.
+&lt;/p&gt;</pre></div>
+        <p>
+Maintenant tout ce que nous avons à faire est dire les propriétées (<strong>properties</strong>) de la personne que nous voulons signaler au moteurs de recherche. Dans l'exemple suivant nous parlerons d'une personne, de son numéro de téléphone,et de sa page web.
+Les textes et les URLS peuvent être marqué avec le RDFa Lite .
+ Dans l'exemple, Faîtes particulièrement attention au types de données qui seront signalées aux moteurs de recherche,
+qui sont surlignées en Bleu:
+        </p>
+        <div class="example"><div class="example-title"><span>Exemple 3</span></div><pre class="example">&lt;p vocab="http://schema.org/" typeof="Person"&gt;
+   My name is
+   &lt;span <span style="color: #5b5; font-weight: bold;">property="name"</span>&gt;<span style="color: #55b; font-weight: bold;">Manu Sporny</span>&lt;/span&gt;
+   and you can give me a ring via
+   &lt;span <span style="color: #5b5; font-weight: bold;">property="telephone"</span>&gt;<span style="color: #55b; font-weight: bold;">1-800-555-0199</span>&lt;/span&gt;
+   or visit
+   &lt;a <span style="color: #5b5; font-weight: bold;">property="url"</span> href="<span style="color: #55b; font-weight: bold;">http://fish.carpe.poisson/</span>"&gt;my homepage&lt;/a&gt;.
+&lt;/p&gt;</pre></div>
+        <p>
+Maintenant, quand quelqu'un tape “phone number for Manu Sporny” dans un moteur de recherche,
+ le moteur de recherche trouvera la réponse plus rapidement.
+        </p>
+      </section>
+
+      <section property="bibo:hasPart" resource="#resource" typeof="bibo:Chapter" id="resource">
+        <h3 resource="#h-resource" id="h-resource"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.2 </span>ressources</span></h3>
+        <p>
+Si nous voulons que les auteurs web parlent quelque chose sur leurs pages, ils devront créer un identifiant pour ces choses. Tout comme nous créons des identificateurs pour parties d'une page à l'aide du
+ <code>id</code> (Attributs)
+en HTML, ils peuvent créer des liens sur leurs pages en utilisant l'attribut
+<code>resource</code> :
+        </p>
+        <div class="example"><div class="example-title"><span>Exemple 4</span></div><pre class="example">&lt;p vocab="http://schema.org/" <span style="color: #5b5; font-weight: bold;">resource="#manu"</span> typeof="Person"&gt;
+   My name is
+   &lt;span property="name"&gt;Manu Sporny&lt;/span&gt;
+   and you can give me a ring via
+   &lt;span property="telephone"&gt;1-800-555-0199&lt;/span&gt;.
+   &lt;img property="image" src="http://manu.sporny.org/images/manu.png" /&gt;
+&lt;/p&gt;</pre></div>
+        <p>
+Si nous supposons que l'attribut peut être trouvé à
+<code>http://example.org/people</code>. Donc,
+l'identifiant sur la page pour cette chose sera:
+<code>http://example.org/people#manu</code>. L'identifiant est aussi utile si
+nous voulons parler de la même chose sur une autre page Web. En identifiant tout les choses avec une(URL), nous pouvons créer un Web qui est constitué d'objet avec du sens.
+Nous pourrons voir les companies créer des logiciels pour répondre à des questions complexes telle que: "What is Manu Sporny's phone
+number and what does he look like?"(Quel est le numéro de téléphone de Manu Sporny et à quoi il ressemble?).
+        </p>
+      </section>
+
+      <section property="bibo:hasPart" resource="#prefix" typeof="bibo:Chapter" id="prefix">
+        <h3 resource="#h-prefix" id="h-prefix"><span property="xhv:role" resource="xhv:heading"><span class="secno">2.3 </span>prefix</span></h3>
+        <p>
+Dans de nombreux cas,un vocabulaire ne peut pas avoir toutes les conditions qu'un auteur a besoin pour décrire leurs <em>choses</em>.
+La dernière mise à jour dans le RDFa Lite 1.1 est que
+ les auteurs peuvent spécifier plus d'un vocabulaire. Par
+exemple, Si nous décrivons une personne et que nous avons besoin de dire quel est son animal préféré, nous ferons quelque chose comme çà:
+        </p>
+        <div class="example"><div class="example-title"><span>Exemple 5</span></div><pre class="example">&lt;p vocab="http://schema.org/" <span style="color: #5b5; font-weight: bold;">prefix="ov: http://open.vocab.org/terms/"</span> resource="#manu" typeof="Person"&gt;
+   My name is
+   &lt;span property="name"&gt;Manu Sporny&lt;/span&gt;
+   and you can give me a ring via
+   &lt;span property="telephone"&gt;1-800-555-0199&lt;/span&gt;.
+   &lt;img property="image" src="http://manu.sporny.org/images/manu.png" /&gt;
+   My favorite animal is the &lt;span <span style="color: #5b5; font-weight: bold;">property="ov:preferredAnimal"</span>&gt;<span style="color: #55b; font-weight: bold;">Liger</span>&lt;/span&gt;.
+&lt;/p&gt;</pre></div>
+        <p>
+L'exemple montre une partie de l'open vocabulary
+(<code>ov</code>) et le préfixe
+<code>preferredAnimal</code> spécifie le terme. Schema.org n'a pas une façon clair d'exprimer l'animal préféré d'une personne ,l'auteur se base alors sur un vocabulaire alternatif pour s'exprimer.
+        </p>
+        <p>
+RDFa 1.1 Lite également pré-définit un certain nombre de préfixes
+<a href="http://www.w3.org/2011/rdfa-context/rdfa-1.1"> utile et populaire
+</a>, comme le <code>dc</code>, <code>foaf</code>, et
+<code>schema</code>. Cela garantit que même si les auteurs oublient de déclarer les préfixes populaires
+, que leurs données structurées vont continuer à être structurées. Une liste entière de préfixes pre-déclarés peut être trouvée
+<a href="http://www.w3.org/2011/rdfa-context/rdfa-1.1">ICI
+( RDFa 1.1  )</a>.
+        </p>
+    </section>
+    <p>
+Si vous souhaitez en savoir plus sur ce qui est possible avec RDFa Lite, y compris une introduction au modèle de données, veuillez s'il vous plaît lire la section sur RDFa Lite dans le Primer RDFa [rdfa-primer]. [<cite><a href="#bib-rdfa-primer" class="bibref">rdfa-primer</a></cite>].
+    </p>
+  </section>
+
+<section property="bibo:hasPart" resource="#conformance" typeof="bibo:Chapter" id="conformance"><!--OddPage--><h2 resource="#h-conformance" id="h-conformance"><span property="xhv:role" resource="xhv:heading"><span class="secno">3. </span>Conformité</span></h2>
+<p>
+  Les sections marquées "n'est pas normatif" soit toutes les consignes d'écriture, diagramme, exemples,
+  et notes dans cette specification sont "non-normative". Tout les reste est normatif.
+</p>
+<p id="respecRFC2119">Les mots clés <em class="rfc2119" title="MAY">MAY</em>, <em class="rfc2119" title="MUST">MUST</em>, <em class="rfc2119" title="MUST NOT">MUST NOT</em>, et <em class="rfc2119" title="SHOULD">SHOULD</em> sont
+  interprétés comme décris dans la [<cite><a href="#bib-RFC2119" class="bibref">RFC2119</a></cite>].
+</p>
+
+
+   <section property="bibo:hasPart" resource="#document-conformance" typeof="bibo:Chapter" id="document-conformance">
+      <h3 resource="#h-document-conformance" id="h-document-conformance"><span property="xhv:role" resource="xhv:heading"><span class="secno">3.1 </span>Conformité du document</span></h3>
+
+      <p>
+Pour être un document conforme (<strong>RDFa Lite 1.1
+document</strong>):
+      </p>
+      <ul>
+         <li>
+It <em title="MUST" class="rfc2119">MUST</em> only require the facilities described as mandatory
+in its Host Language.
+         </li>
+         <li>
+It <em title="MUST NOT" class="rfc2119">MUST NOT</em> use any additional RDFa attributes other than
+<code>vocab</code>, <code>typeof</code>, <code>property</code>,
+<code>resource</code>, and <code>prefix</code>; it may also use
+<code>href</code> and <code>src</code>, when the Host Language authorizes
+the usage of those attributes.
+However, even if authorized by the Host Language, the usage of
+<code>rel</code> and <code>rev</code>
+<em title="SHOULD" class="rfc2119">SHOULD</em> be restricted to non-RDFa usage patterns, as defined by the
+Host Language.
+         </li>
+         <li>
+All RDFa attributes <em title="SHOULD" class="rfc2119">SHOULD</em> be used in a way that is conformant with
+[<cite><a href="#bib-rdfa-core" class="bibref">rdfa-core</a></cite>].
+         </li>
+         <li>
+In XML-based languages, a document <em title="MAY" class="rfc2119">MAY</em> still be labeled as a conforming RDFa
+Lite 1.1 document as long as the usage of the <code>xmlns</code> attribute
+is not used to declare CURIE prefixes.
+         </li>
+      </ul>
+      <p>
+If additional non-RDFa Lite attributes are used from the RDFa Core 1.1
+specification, the document <em title="MUST" class="rfc2119">MUST</em> be referred to as a conforming
+<strong>RDFa 1.1 document</strong>. All conforming RDFa Lite 1.1 documents
+<em title="MAY" class="rfc2119">MAY</em> be referred to as conforming RDFa 1.1 documents.
+      </p>
+   </section>
+
+</section>
+
+
+  <section property="bibo:hasPart" resource="#change-history-since-the-last-published-recommentation" typeof="bibo:Chapter" id="change-history-since-the-last-published-recommentation" class="informative">
+    <!--OddPage--><h2 resource="#changes" id="changes"><span property="xhv:role" resource="xhv:heading"><span class="secno">4. </span>Modifications depuis la dernière Recommandation</span></h2><p><em>Cette section n'est pas normatif.</em></p>
+    <p>2014-12-16: Deux erreurs de grammaire ont étaient changés dans le statut de ce document</p>
+    <p>2014-12-16: Les références ont étaient mise à jour </p>
+    <p>2014-12-16: Le style des références ont été mis à jour pour la dernière mode de respécialisation</p>
+
+</section>
+
+
+
+
+<section property="bibo:hasPart" resource="#references" typeof="bibo:Chapter" id="references" class="appendix"><!--OddPage--><h2 resource="#h-references" id="h-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">A. </span>References</span></h2><section property="bibo:hasPart" resource="#normative-references" typeof="bibo:Chapter" id="normative-references"><h3 resource="#h-normative-references" id="h-normative-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">A.1 </span>Normative references</span></h3><dl resource="" class="bibliography"><dt id="bib-RFC2119">[RFC2119]</dt><dd>S. Bradner. <a property="dc:requires" href="https://tools.ietf.org/html/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. March 1997. Best Current Practice. URL: <a property="dc:requires" href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
+</dd><dt id="bib-rdfa-core">[rdfa-core]</dt><dd>Ben Adida; Mark Birbeck; Shane McCarron; Ivan Herman et al. <a property="dc:requires" href="http://www.w3.org/TR/rdfa-core">RDFa Core 1.1 - Third Edition: Syntax and processing rules for embedding RDF through attributes</a>. 17 March 2015. W3C Recommendation. URL: <a property="dc:requires" href="http://www.w3.org/TR/rdfa-core/">http://www.w3.org/TR/rdfa-core/</a>
+</dd></dl></section><section property="bibo:hasPart" resource="#informative-references" typeof="bibo:Chapter" id="informative-references"><h3 resource="#h-informative-references" id="h-informative-references"><span property="xhv:role" resource="xhv:heading"><span class="secno">A.2 </span>Informative references</span></h3><dl resource="" class="bibliography"><dt id="bib-microdata">[microdata]</dt><dd>Ian Hickson. <a property="dc:references" href="http://www.w3.org/TR/microdata/"><cite>HTML Microdata</cite></a>. 29 October 2013. W3C Note. URL: <a property="dc:references" href="http://www.w3.org/TR/microdata/">http://www.w3.org/TR/microdata/</a>
+</dd><dt id="bib-microformats">[microformats]</dt><dd><a property="dc:references" href="http://microformats.org"><cite>Microformats</cite></a>. URL: <a property="dc:references" href="http://microformats.org">http://microformats.org</a>
+</dd><dt id="bib-rdfa-primer">[rdfa-primer]</dt><dd>Ben Adida; Ivan Herman; Manu Sporny; Mark Birbeck. <a property="dc:references" href="http://www.w3.org/TR/rdfa-primer/">RDFa 1.1 Primer - Third Edition</a>. 17 March 2015. W3C Note. URL: <a property="dc:references" href="http://www.w3.org/TR/rdfa-primer">http://www.w3.org/TR/rdfa-primer/</a>
+</dd></dl></section></section><script>(function(){var f="webkitvisibilitychange",k="start",m="sens_",n="req_",q="rcv_",r="prerender",t="ntsrt_",u="ntplt1_",v="ntplt0_",w="nsfs_",x="mobilespeed",y="https://csi.gstatic.com/csi",z="https:",A="http://csi.gstatic.com/csi",B="dns_",D="con_",E="_se",F="_req",G="_rcv",H="_ns",I="_dns",J="_con",K="_",L="?v=3",M="=",N="1",O=".",P=",",Q="&tran=",R="&tbsrt=",S="&srt=",T="&s=",U="&rt=",V="&p=s",aa="&npnv=",ba="&npn=1",ca="&it=",da="&apa=1",ea="&action=",fa="&",W="";if(window.mobilespeed_jstiming){window.mobilespeed_jstiming.a={};window.mobilespeed_jstiming.b=1;var X=function(b,a,d){var c=b.t[a],e=b.t.start;if(c&&(e||d))return c=b.t[a][0],void 0!=d?e=d:e=e[0],Math.round(c-e)},ha=function(b,a,d){var c=W;window.mobilespeed_jstiming.srt&&(c+=S+window.mobilespeed_jstiming.srt,delete window.mobilespeed_jstiming.srt);window.mobilespeed_jstiming.pt&&(c+=R+window.mobilespeed_jstiming.pt,delete window.mobilespeed_jstiming.pt);try{window.external&&window.external.tran?
+c+=Q+window.external.tran:window.gtbExternal&&window.gtbExternal.tran?c+=Q+window.gtbExternal.tran():window.chrome&&window.chrome.csi&&(c+=Q+window.chrome.csi().tran)}catch(ia){}var e=window.chrome;if(e&&(e=e.loadTimes)){e().wasFetchedViaSpdy&&(c+=V);if(e().wasNpnNegotiated){var c=c+ba,g=e().npnNegotiatedProtocol;g&&(c+=aa+(encodeURIComponent||escape)(g))}e().wasAlternateProtocolAvailable&&(c+=da)}var l=b.t,ga=l.start,e=[],g=[],h;for(h in l)if(h!=k&&0!=h.indexOf(K)){var p=l[h][1];p?l[p]&&g.push(h+
+O+X(b,h,l[p][0])):ga&&e.push(h+O+X(b,h))}delete l.start;if(a)for(var C in a)c+=fa+C+M+a[C];(a=d)||(a=z==document.location.protocol?y:A);return[a,L,T+(window.mobilespeed_jstiming.sn||x)+ea,b.name,g.length?ca+g.join(P):W,c,U,e.join(P)].join(W)},Y=function(b,a,d){b=ha(b,a,d);if(!b)return W;a=new Image;var c=window.mobilespeed_jstiming.b++;window.mobilespeed_jstiming.a[c]=a;a.onload=a.onerror=function(){window.mobilespeed_jstiming&&delete window.mobilespeed_jstiming.a[c]};a.src=b;a=null;return b};window.mobilespeed_jstiming.report=
+function(b,a,d){if(document.webkitVisibilityState==r){var c=!1,e=function(){if(!c){a?a.prerender=N:a={prerender:N};var g;document.webkitVisibilityState==r?g=!1:(Y(b,a,d),g=!0);g&&(c=!0,document.removeEventListener(f,e,!1))}};document.addEventListener(f,e,!1);return W}return Y(b,a,d)};var Z=function(b,a,d,c){return 0<d?(c?b.tick(a,c,d):b.tick(a,W,d),!0):!1};window.mobilespeed_jstiming.getNavTiming=function(b){if(window.performance&&window.performance.timing){var a=window.performance.timing;Z(b,I,a.domainLookupStart)&&
+Z(b,B,a.domainLookupEnd,I);Z(b,J,a.connectStart)&&Z(b,D,a.connectEnd,J);Z(b,F,a.requestStart)&&Z(b,n,a.responseStart,F);Z(b,G,a.responseStart)&&Z(b,q,a.responseEnd,G);if(Z(b,H,a.navigationStart)){Z(b,t,a.responseStart,H);Z(b,w,a.fetchStart,H);var d=!1;try{d=window.external&&window.external.startE}catch(c){}!d&&window.chrome&&window.chrome.csi&&(d=Math.floor(window.chrome.csi().startE));d&&(Z(b,E,d),Z(b,m,a.navigationStart,E));Z(b,v,a.loadEventStart,H);Z(b,u,a.loadEventEnd,H)}}}};})();
+</script><script>(function(){var a="prefetch",b="load",c="ol",d=window.mobilespeed_jstiming,e=d.load;window.top==window&&window.addEventListener(b,function(){e.name=b;e.tick(c);d.getNavTiming(e);setTimeout(function(){d.report(e,{e:a})},300)},!1);})();
+</script></body></html>
